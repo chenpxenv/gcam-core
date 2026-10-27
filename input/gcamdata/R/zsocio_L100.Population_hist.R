@@ -215,16 +215,11 @@ module_socio_L100.Population_hist <- function(command, ...) {
 
     # Some iso's don't have data out to the base year, so we need to extrapolate
     # Create a dataframe that has all iso's and all years, and fill with the values we have from Maddison and UN
-    L100.Pop_thous_ctry_Yh %>%
-      repeat_add_columns(tibble::tibble(iso=unique(L100.Pop_thous_ctry_Yh$iso))) %>%
-      repeat_add_columns(tibble::tibble(year=unique(L100.Pop_thous_ctry_Yh$year))) %>%
-      select(-c(iso.x,year.x,value)) %>%
-      distinct() %>%
+    # (memory-light equivalent of the original cross join: all iso x year combinations)
+    tidyr::expand_grid(iso = unique(L100.Pop_thous_ctry_Yh$iso),
+                       year = unique(L100.Pop_thous_ctry_Yh$year)) %>%
       # Must use left_join because we want NAs in this dataframe to show what is missing from IEA
-      left_join(L100.Pop_thous_ctry_Yh, by=c("iso.y" = "iso", "year.y" = "year")) %>%
-      rename(iso = iso.y,
-             year = year.y) ->
-      # This results in a df that has NAs, so we can interpolate / extrapolate
+      left_join(L100.Pop_thous_ctry_Yh, by = c("iso", "year")) ->
       L100.Pop_thous_ctry_UNpopYh_NAs
 
     # Write out a warning with the number of NAs
