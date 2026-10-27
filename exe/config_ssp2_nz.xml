@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
 	<Files>
-		<Value name="xmlInputFileName">../input/gcamdata/xml/modeltime.xml</Value>
+		<Value name="xmlInputFileName">modeltime_2050.xml</Value>
 		<Value name="BatchFileName">batch_ag.xml</Value>
 		<Value name="policy-target-file">../input/policy/forcing_target_4p5.xml</Value>
 		<Value name="GHGInputFileName">../input/magicc/inputs/input_gases.emk</Value>
