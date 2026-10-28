@@ -384,7 +384,7 @@
 
         <Value name = "prune_ag">../input/gcamdata/xml/prune_empty_ag.xml</Value>
 
-		<Value name = "ghg_link">../input/policy/ghg_link_global.xml</Value>
+		<Value name = "ghg_link">ghg_link_global_market.xml</Value>
 		<Value name = "ghg_net0">../input/policy/ghg_net0_constraint_global.xml</Value>
 		<Value name = "solver">../input/solution/cal_broyden_config.xml</Value>
 
