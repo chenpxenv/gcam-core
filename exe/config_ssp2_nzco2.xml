@@ -386,7 +386,7 @@
 
 		<Value name = "co2_net0">co2_net0_constraint_global.xml</Value>
 		<Value name = "co2_link">co2_link_global_market.xml</Value>
-		<Value name = "solver">../input/solution/cal_broyden_config.xml</Value>
+		<Value name = "solver">solver_netzero.xml</Value>
 
 	</ScenarioComponents>
 	<Strings>
